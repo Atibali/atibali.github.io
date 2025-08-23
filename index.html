@@ -1,32 +1,465 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="Atibali Saiyed - Cybersecurity & AI Expert">
-    <meta name="description" content="Cybersecurity expert, AI & ML researcher, and software developer. Learn about my projects, skills, and career.">
-    <meta name="keywords" content="Atibali Saiyed, Saiyed Atibali, Atibali, Atib, Atib Saiyed, Saiyed Atib, Cybersecurity, AI, Machine Learning, Ethical Hacking, Software Development, DriveMate, Let's Bunk, IoT, Automation, Business, Finance, Tech Enthusiast, AI Security, Web Development, Student Projects">
+
+    <!-- SEO Meta Tags -->
+    <meta name="title" content="Atibali Saiyed - Software Developer & Innovator">
+    <meta name="description"
+        content="Portfolio of Atibali Saiyed - Software Developer and Innovator. Explore projects, skills, and achievements in web development, cybersecurity, and AI.">
+    <meta name="keywords"
+        content="Atibali Saiyed, Saiyed Atibali, Atibali, Atib, Software Developer, Innovator, Web Development, Cybersecurity, AI Projects, DriveMate, Let's Bunk, Student Projects, Charusat University">
     <meta name="author" content="Atibali Saiyed">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Atibali Saiyed - Cybersecurity & AI Expert">
-    <meta property="og:description" content="Cybersecurity expert, AI & ML researcher, and software developer.">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Atibali Saiyed - Software Developer & Innovator">
+    <meta property="og:description"
+        content="Discover the portfolio of Atibali Saiyed - Innovator and Software Developer, building solutions in web development, cybersecurity, and AI.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://atibali.github.io/">
+    <meta property="og:image" content="https://atibali.github.io/images/portfolio-preview.png">
+
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Atibali Saiyed - Portfolio</title>
+    <title>Atibali Saiyed - Cybersecurity & AI Portfolio</title>
     <style>
-        body { background-color: #f8f9fa; color: #212529; font-family: Arial, sans-serif; }
-        .navbar { background-color: #ffffff; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); }
-        .hero-section { text-align: center; padding: 100px 20px; background: linear-gradient(135deg, #ffffff, #e3f2fd); }
-        .section-title { margin-bottom: 20px; font-weight: bold; }
-        .card { background-color: #ffffff; color: #212529; border: 1px solid #ddd; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); }
-        .contact a { color: #007bff; text-decoration: none; }
-        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        :root {
+            --primary: #ffffff;
+            --secondary: #f8f9fa;
+            --accent: #4e6bff;
+            --accent-light: #7a8eff;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --card-bg: #ffffff;
+            --card-shadow: rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--primary);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            transition: var(--transition);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            color: var(--accent) !important;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-primary) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--accent) !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+            opacity: 0.15;
+            top: -200px;
+            right: -200px;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+            opacity: 0.1;
+            bottom: -150px;
+            left: -150px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .hero-highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .btn-custom {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(78, 107, 255, 0.3);
+        }
+
+        .btn-custom:hover {
+            background-color: var(--accent-light);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(78, 107, 255, 0.4);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent), var(--accent-light));
+            margin-top: 0.5rem;
+            border-radius: 2px;
+        }
+
+        /* Cards */
+        .custom-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.8rem;
+            height: 100%;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 20px var(--card-shadow);
+        }
+
+        .custom-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-card h5 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* Skills */
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background-color: rgba(78, 107, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(to right, var(--accent), var(--accent-light));
+            border-radius: 5px;
+            position: relative;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Projects */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f0f3ff 0%, #e0e7ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h5 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* Experience */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent), var(--accent-light));
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 0.5rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--accent-light);
+        }
+
+        .timeline-date {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.2rem;
+            color: white;
+            font-size: 1.3rem;
+            box-shadow: 0 5px 15px rgba(78, 107, 255, 0.3);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            transition: var(--transition);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(78, 107, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            padding: 2.5rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.3rem;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            .timeline-item::before {
+                left: -2.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .btn-custom {
+                padding: 0.6rem 1.5rem;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
     </style>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">Atibali Saiyed</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -34,6 +467,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
@@ -44,64 +478,331 @@
         </div>
     </nav>
 
-    <section class="hero-section fade-in">
-        <h1 class="display-4">Atibali Saiyed</h1>
-        <p class="lead">Cybersecurity & AI Enthusiast | Software Developer | B.Tech Student</p>
-    </section>
-
-    <section id="about" class="container py-5 fade-in">
-        <h2 class="section-title">About Me</h2>
-        <p>Passionate cybersecurity and AI enthusiast with a strong background in software development. Currently pursuing B.Tech in Computer Science & Engineering at Charusat University. Interests include ethical hacking, AI-driven applications, business model analysis, and automation.</p>
-    </section>
-
-    <section id="skills" class="container py-5 fade-in">
-        <h2 class="section-title">Skills & Expertise</h2>
-        <div class="row">
-            <div class="col-md-4"><div class="card p-3">Cybersecurity & Ethical Hacking</div></div>
-            <div class="col-md-4"><div class="card p-3">AI & Machine Learning</div></div>
-            <div class="col-md-4"><div class="card p-3">Web Development</div></div>
-            <div class="col-md-4"><div class="card p-3">Software Engineering & Project Leadership</div></div>
-            <div class="col-md-4"><div class="card p-3">Business & Finance Analysis</div></div>
-            <div class="col-md-4"><div class="card p-3">IoT & Automation</div></div>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1 class="hero-title fade-in">Atibali Saiyed</h1>
+                    <p class="hero-subtitle fade-in">Cybersecurity & AI Enthusiast | Software Developer | B.Tech Student
+                    </p>
+                    <p class="fade-in">Passionate about securing digital landscapes and developing intelligent systems
+                    </p>
+                    <a href="#contact" class="btn-custom mt-3 fade-in">Get In Touch</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="projects" class="container py-5 fade-in">
-        <h2 class="section-title">Projects</h2>
-        <div class="row">
-            <div class="col-md-6"><div class="card p-3"><h5>DriveMate</h5><p>Revolutionizing vehicle rental management system.</p></div></div>
-            <div class="col-md-6"><div class="card p-3"><h5>Let's Bunk</h5><p>Smart AI for Students to Balance Lectures and Tech Events.</p></div></div>
-            <div class="col-md-6"><div class="card p-3"><h5>IoT Water Monitoring</h5><p>Optimizing water usage and ensuring quality control.</p></div></div>
-            <div class="col-md-6"><div class="card p-3"><h5>School Management System</h5><p>Managing student records, teacher interactions, and admin tasks.</p></div></div>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">About Me</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="custom-card fade-in">
+                        <p>I am a passionate cybersecurity and AI enthusiast with a strong background in software
+                            development. Currently pursuing B.Tech in Computer Science & Engineering at Charusat
+                            University.</p>
+                        <p>My interests include ethical hacking, AI-driven applications, business model analysis, and
+                            automation. I enjoy tackling complex problems and creating innovative solutions that bridge
+                            the gap between security and artificial intelligence.</p>
+                        <p>When I'm not coding or researching, I'm usually exploring new technologies, contributing to
+                            open-source projects, or sharing knowledge with the tech community.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="experience" class="container py-5 fade-in">
-        <h2 class="section-title">Experience</h2>
-        <div class="row">
-          <div class="col-md-6"><div class="card p-3"><h5>Upcoming Internship</h5><p>May 12 - June 21, 2025 - Actively seeking opportunities in cybersecurity, AI, or full-stack development.</p></div></div>
-            <div class="col-md-6"><div class="card p-3"><h5>Cybersecurity Intern</h5><p>Edunet Foundation (Jan 2025 - Feb 2025) - Gained hands-on experience in cryptographic algorithms and steganography.</p></div></div>
-            <div class="col-md-6"><div class="card p-3"><h5>Python Developer Intern</h5><p>EISystems Technologies (Dec 2024 - Jan 2025) - Developed cybersecurity tools and completed Python programming training.</p></div></div>
-            <div class="col-md-6"><div class="card p-3"><h5>Web Developer Intern</h5><p>Rainbow IT Services (Sep 2022 - Sep 2022) - Maintained websites, fixed errors, and integrated PHP back-end services.</p></div></div>
-          </div>
+    <!-- Skills Section -->
+    <section id="skills" class="section" style="background-color: var(--secondary);">
+        <div class="container">
+            <h2 class="section-title fade-in">Skills & Expertise</h2>
+            <div class="row">
+                <div class="col-md-6 fade-in">
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Web Development</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>AI & Machine Learning</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Cybersecurity & Ethical Hacking</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="88%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in">
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Software Engineering</span>
+                            <span>87%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="87%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Business & Finance Analysis</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>IoT & Automation</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="82%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="contact" class="container py-5 contact fade-in">
-        <h2 class="section-title">Contact & Socials</h2>
-        <p>Email: <a href="mailto:saiyedatibali@gmail.com">saiyedatibali@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/atibali-saiyed" target="_blank">linkedin.com/in/atibali-saiyed</a></p>
-        <p>GitHub: <a href="https://github.com/Atibali" target="_blank">github.com/Atibali</a></p>
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Projects</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 fade-in">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="project-content">
+                            <h5>DriveMate</h5>
+                            <p>Revolutionizing vehicle rental management system with advanced features.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 fade-in">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="project-content">
+                            <h5>Let's Bunk</h5>
+                            <p>Smart AI for Students to Balance Lectures and Tech Events with intelligent scheduling.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 fade-in">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="project-content">
+                            <h5>IoT Water Monitoring</h5>
+                            <p>Optimizing water usage and ensuring quality control through IoT sensors and analytics.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 fade-in">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <div class="project-content">
+                            <h5>School Management System</h5>
+                            <p>Comprehensive system for managing student records, teacher interactions, and admin tasks.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <footer class="text-center py-4" style="background-color: #ffffff;">
-        <p>&copy; 2025 Atibali Saiyed. All rights reserved.</p>
+    <!-- Experience Section -->
+    <section id="experience" class="section" style="background-color: var(--secondary);">
+        <div class="container">
+            <h2 class="section-title fade-in">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="custom-card">
+                        <div class="timeline-date">May 12 - June 21, 2025</div>
+                        <h5>Python Developer Intern</h5>
+                        <p>Developed and implemented a Product Distribution Module using Django Framework, enhancing
+                            supply chain efficiency.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="custom-card">
+                        <div class="timeline-date">Jan 2025 - Feb 2025</div>
+                        <h5>Cybersecurity Intern</h5>
+                        <p>Edunet Foundation - Gained hands-on experience in cryptographic algorithms and steganography
+                            techniques for secure data transmission.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="custom-card">
+                        <div class="timeline-date">Dec 2024 - Jan 2025</div>
+                        <h5>Python Developer Intern</h5>
+                        <p>EISystems Technologies - Developed cybersecurity tools and completed advanced Python
+                            programming training for security applications.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="custom-card">
+                        <div class="timeline-date">Sep 2022</div>
+                        <h5>Web Developer Intern</h5>
+                        <p>Rainbow IT Services - Maintained websites, fixed errors, and integrated PHP back-end services
+                            for enhanced functionality.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Contact & Socials</h2>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="custom-card fade-in">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5>Email</h5>
+                                <a href="mailto:saiyedatibali@gmail.com">saiyedatibali@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div>
+                                <h5>LinkedIn</h5>
+                                <a href="https://linkedin.com/in/atibali-saiyed"
+                                    target="_blank">linkedin.com/in/atibali-saiyed</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div>
+                                <h5>GitHub</h5>
+                                <a href="https://github.com/Atibali" target="_blank">github.com/Atibali</a>
+                            </div>
+                        </div>
+                        <div class="social-links justify-content-center">
+                            <a href="https://linkedin.com/in/atibali-saiyed" target="_blank" class="social-link">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/Atibali" target="_blank" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="mailto:saiyedatibali@gmail.com" class="social-link">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2025 Atibali Saiyed. All rights reserved.</p>
+        </div>
     </footer>
+
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
-          document.querySelectorAll(".fade-in").forEach((element, index) => {
-              setTimeout(() => element.classList.add("visible"), index * 200);
-          });
-      });
-  </script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Fade in elements on scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+
+            const fadeInOnScroll = function () {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+
+                        // Animate skill bars
+                        if (element.querySelector('.skill-progress')) {
+                            const progressBars = element.querySelectorAll('.skill-progress');
+                            progressBars.forEach(bar => {
+                                bar.style.width = bar.getAttribute('data-width');
+                            });
+                        }
+                    }
+                });
+            };
+
+            // Initial check
+            fadeInOnScroll();
+
+            // Check on scroll
+            window.addEventListener('scroll', fadeInOnScroll);
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a.nav-link').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+
+                    // Update active nav link
+                    document.querySelectorAll('a.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+            });
+
+            // Update navbar on scroll
+            window.addEventListener('scroll', function () {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.style.padding = '0.7rem 0';
+                    navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+                } else {
+                    navbar.style.padding = '1rem 0';
+                    navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.08)';
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
