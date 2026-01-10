@@ -1,5 +1,3 @@
-[file name]: script.js
-[file content begin]
 // ==============================
 // Portfolio JavaScript for GitHub Pages
 // ==============================
@@ -13,7 +11,8 @@ const skillBars = document.querySelectorAll('.level-bar');
 // Configuration
 const CONFIG = {
     EMAIL: 'saiyedatibali@gmail.com',
-    RESUME_URL: 'https://raw.githubusercontent.com/atibali/atibali.github.io/main/Atibali_Saiyed_Resume.pdf',
+    // Use direct raw GitHub link for resume
+    RESUME_URL: 'https://github.com/Atibali/atibali.github.io/raw/main/Atibali_Saiyed_Resume.pdf',
     RESUME_FILENAME: 'Atibali_Saiyed_Resume.pdf',
     GITHUB_USERNAME: 'atibali',
     LINKEDIN_URL: 'https://www.linkedin.com/in/atibali-saiyed/'
@@ -78,7 +77,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 ------------------------------ */
 function downloadResume() {
     try {
-        // Show loading state
+        // Show loading state on all resume buttons
         const resumeBtns = document.querySelectorAll('.btn-resume, .btn-resume-small');
         
         resumeBtns.forEach(btn => {
@@ -86,70 +85,46 @@ function downloadResume() {
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing...';
             btn.disabled = true;
             
-            // Reset button after 2 seconds
+            // Reset button after 3 seconds
             setTimeout(() => {
                 btn.innerHTML = originalText;
                 btn.disabled = false;
-            }, 2000);
+            }, 3000);
         });
 
-        // Method 1: Direct download using fetch and Blob (works cross-origin)
-        fetch(CONFIG.RESUME_URL)
-            .then(response => {
-                if (!response.ok) throw new Error('Network response was not ok');
-                return response.blob();
-            })
-            .then(blob => {
-                // Create a temporary link element
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.style.display = 'none';
-                a.href = url;
-                a.download = CONFIG.RESUME_FILENAME;
-                
-                // Add to page, click, and remove
-                document.body.appendChild(a);
-                a.click();
-                
-                // Clean up
-                window.URL.revokeObjectURL(url);
-                document.body.removeChild(a);
-                
-                // Show success notification
-                showNotification('Resume downloaded successfully! ✅', 'success');
-            })
-            .catch(error => {
-                console.error('Download error:', error);
-                
-                // Method 2: Fallback - Open in new tab
-                showNotification('Opening resume in new tab...', 'info');
-                window.open(CONFIG.RESUME_URL, '_blank');
-                
-                // Method 3: Alternative fallback
-                setTimeout(() => {
-                    showNotification('If download doesn\'t start, <a href="' + CONFIG.RESUME_URL + '" target="_blank" style="color:white;text-decoration:underline">click here</a> to download manually.', 'info');
-                }, 1000);
-            });
+        // Method 1: Direct anchor download (works with raw GitHub URL)
+        const a = document.createElement('a');
+        a.href = CONFIG.RESUME_URL;
+        a.download = CONFIG.RESUME_FILENAME;
+        a.target = '_blank'; // Open in new tab if direct download doesn't work
+        
+        // Append to body, click, and remove
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        
+        // Show success notification
+        setTimeout(() => {
+            showNotification('Resume download started! ✅', 'success');
+        }, 1000);
             
     } catch (error) {
         console.error('Resume download failed:', error);
-        showNotification('Unable to download resume. Please try again or contact me directly.', 'error');
+        
+        // Fallback: Open in new tab
+        window.open(CONFIG.RESUME_URL, '_blank');
+        showNotification('Opening resume in new tab...', 'info');
     }
 }
 
 // Add event listeners to all resume buttons
 document.addEventListener('DOMContentLoaded', () => {
     // Add to existing resume buttons
-    document.querySelectorAll('.btn-resume, .btn-resume-small, a[href*="resume"], a[href*="Resume"]').forEach(btn => {
-        if (!btn.hasAttribute('data-listener-added')) {
-            btn.addEventListener('click', (e) => {
-                if (btn.getAttribute('href') === '#' || btn.getAttribute('href').includes('resume')) {
-                    e.preventDefault();
-                    downloadResume();
-                }
-            });
-            btn.setAttribute('data-listener-added', 'true');
-        }
+    document.querySelectorAll('.btn-resume, .btn-resume-small').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            downloadResume();
+        });
     });
     
     // Add resume button to navbar dynamically
@@ -230,11 +205,6 @@ document.querySelectorAll('.btn-email').forEach(btn => {
         e.preventDefault();
         copyEmail();
     });
-    
-    // Update email text on buttons
-    if (!btn.querySelector('i')) {
-        btn.textContent = CONFIG.EMAIL;
-    }
 });
 
 /* -----------------------------
@@ -264,51 +234,26 @@ if (contactForm) {
         btn.disabled = true;
 
         try {
-            // Since GitHub Pages doesn't support backend, we'll use Formspree or similar
-            // For now, simulate a successful send
+            // Simulate sending
             await new Promise(resolve => setTimeout(resolve, 1500));
             
-            // Option 1: Use Formspree (uncomment and add your Formspree ID)
-            /*
-            const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
-            const response = await fetch(formspreeEndpoint, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            });
+            // For GitHub Pages, open mail client with pre-filled details
+            const subject = encodeURIComponent(data.subject);
+            const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\n\nMessage: ${data.message}`);
+            const mailtoLink = `mailto:${CONFIG.EMAIL}?subject=${subject}&body=${body}`;
             
-            if (!response.ok) throw new Error('Failed to send message');
-            */
-            
-            // Success message
-            showNotification('Message sent successfully! I\'ll get back to you soon. 📬', 'success');
+            // Open mail client
+            window.open(mailtoLink, '_blank');
             
             // Reset form
             contactForm.reset();
             
-            // Log the message (for debugging)
-            console.log('Contact form submission:', {
-                name: data.name,
-                email: data.email,
-                subject: data.subject,
-                message: data.message,
-                timestamp: new Date().toISOString()
-            });
+            // Show success message
+            showNotification('Opening email client... Please send the message.', 'info');
             
         } catch (err) {
             console.error('Form submission error:', err);
-            
-            // Fallback: Open mail client
-            const subject = encodeURIComponent(data.subject);
-            const body = encodeURIComponent(`Name: ${data.name}\n\nMessage: ${data.message}`);
-            const mailtoLink = `mailto:${CONFIG.EMAIL}?subject=${subject}&body=${body}`;
-            
-            showNotification(
-                'Form submission failed. <a href="' + mailtoLink + '" style="color:white;text-decoration:underline">Click here to email me directly</a>.',
-                'info'
-            );
+            showNotification('Failed to send message. Please try again.', 'error');
         } finally {
             btn.innerHTML = oldText;
             btn.disabled = false;
@@ -430,16 +375,4 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         document.head.appendChild(style);
     }
-    
-    // Update all email displays
-    document.querySelectorAll('.btn-email').forEach(btn => {
-        if (btn.textContent === 'Copy Email' || btn.textContent === 'saiyedatibali@gmail.com') {
-            btn.innerHTML = CONFIG.EMAIL;
-        }
-    });
-});
-
-// Handle beforeunload for any cleanup
-window.addEventListener('beforeunload', () => {
-    // Clean up any pending operations
 });
