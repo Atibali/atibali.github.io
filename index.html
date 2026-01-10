@@ -1,815 +1,548 @@
+<!-- ==============================
+  ENHANCED PORTFOLIO WITH RESUME DOWNLOAD
+============================== -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atibali Saiyed - Software Developer</title>
 
-    <!-- SEO Meta Tags -->
-    <meta name="title" content="Atibali Saiyed | Java Backend Developer">
+    <!-- SEO -->
     <meta name="description"
-        content="Portfolio of Atibali Saiyed – Java Backend Developer skilled in Spring Boot, Hibernate, REST APIs, and full-stack development. Creator of ArtSea.">
+        content="Portfolio of Atibali Saiyed, Software Developer skilled in Java, Python, PHP, Spring Boot, Django, and full‑stack development." />
     <meta name="keywords"
-        content="Atibali Saiyed, Java Developer, Backend Developer, Spring Boot, Hibernate, ArtSea Project, Software Engineer">
-    <meta name="author" content="Atibali Saiyed">
-    <meta name="robots" content="index, follow">
+        content="Software Developer, Java, Spring Boot, Python, Backend Developer, Full Stack Developer, Resume" />
+    <meta name="author" content="Atibali Saiyed" />
 
-    <title>Atibali Saiyed | Java Backend Developer</title>
+    <!-- Open Graph -->
+    <meta property="og:title" content="Atibali Saiyed - Software Developer" />
+    <meta property="og:description"
+        content="Building scalable solutions with expertise in backend development and modern full‑stack applications." />
+    <meta property="og:type" content="website" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <style>
-        :root {
-            --primary: #ffffff;
-            --secondary: #f8f9fa;
-            --accent: #4e6bff;
-            --accent-light: #7a8eff;
-            --text-primary: #333333;
-            --text-secondary: #666666;
-            --card-bg: #ffffff;
-            --card-shadow: rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s ease;
-        }
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
 
-        body {
-            background-color: var(--primary);
-            color: var(--text-primary);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        .navbar {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            transition: var(--transition);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-            z-index: 1000;
-        }
-
-        .navbar-brand {
-            color: var(--accent) !important;
-            font-weight: 700;
-            font-size: 1.5rem;
-        }
-
-        .nav-link {
-            color: var(--text-primary) !important;
-            font-weight: 500;
-            margin: 0 0.5rem;
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--accent);
-            transition: var(--transition);
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        .nav-link:hover {
-            color: var(--accent) !important;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 0 1rem;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
-        }
-
-        .hero-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-
-        .hero-bg::after {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
-            opacity: 0.15;
-            top: -200px;
-            right: -200px;
-        }
-
-        .hero-bg::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
-            opacity: 0.1;
-            bottom: -150px;
-            left: -150px;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        .hero-highlight {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .btn-custom {
-            background-color: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 30px;
-            padding: 0.75rem 2rem;
-            font-weight: 600;
-            transition: var(--transition);
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(78, 107, 255, 0.3);
-        }
-
-        .btn-custom:hover {
-            background-color: var(--accent-light);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(78, 107, 255, 0.4);
-        }
-
-        /* Sections */
-        .section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            position: relative;
-            margin-bottom: 3rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 4px;
-            background: linear-gradient(to right, var(--accent), var(--accent-light));
-            margin-top: 0.5rem;
-            border-radius: 2px;
-        }
-
-        /* Cards */
-        .custom-card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 1.8rem;
-            height: 100%;
-            transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            box-shadow: 0 5px 20px var(--card-shadow);
-        }
-
-        .custom-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .custom-card h5 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        /* Skills */
-        .skill-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-
-        .skill-bar {
-            height: 10px;
-            background-color: rgba(78, 107, 255, 0.1);
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(to right, var(--accent), var(--accent-light));
-            border-radius: 5px;
-            position: relative;
-            width: 0;
-            transition: width 1.5s ease-in-out;
-        }
-
-        /* Projects */
-        .project-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: var(--transition);
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .project-img {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #f0f3ff 0%, #e0e7ff 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent);
-            font-size: 3rem;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-content h5 {
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        /* Experience */
-        .timeline {
-            position: relative;
-            padding-left: 3rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 7px;
-            top: 0;
-            height: 100%;
-            width: 3px;
-            background: linear-gradient(to bottom, var(--accent), var(--accent-light));
-            border-radius: 3px;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2.5rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -3rem;
-            top: 0.5rem;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--accent);
-            border: 3px solid white;
-            box-shadow: 0 0 0 3px var(--accent-light);
-        }
-
-        .timeline-date {
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Contact */
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-icon {
-            width: 55px;
-            height: 55px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1.2rem;
-            color: white;
-            font-size: 1.3rem;
-            box-shadow: 0 5px 15px rgba(78, 107, 255, 0.3);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent);
-            transition: var(--transition);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-
-        .social-link:hover {
-            background: var(--accent);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(78, 107, 255, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--secondary);
-            padding: 2.5rem 0;
-            text-align: center;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .hero-title {
-                font-size: 2.8rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.3rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.3rem;
-            }
-
-            .section {
-                padding: 4rem 0;
-            }
-
-            .timeline {
-                padding-left: 2rem;
-            }
-
-            .timeline-item::before {
-                left: -2.2rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .btn-custom {
-                padding: 0.6rem 1.5rem;
-            }
-
-            .contact-item {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .contact-icon {
-                margin-right: 0;
-                margin-bottom: 1rem;
-            }
-        }
-    </style>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container container">
+            <a href="#home" class="logo">Atibali Saiyed<span class="dot">.</span></a>
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">Atibali Saiyed</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- Hero Section -->
-<section id="home" class="hero-section">
-    <div class="hero-bg"></div>
-    <div class="container hero-content">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
-                <h1 class="hero-title fade-in">Atibali Saiyed</h1>
-                <p class="hero-subtitle fade-in">
-                    Java Backend Developer | Spring Boot | Hibernate | REST APIs
-                </p>
-                <p class="fade-in">
-                    Building scalable backend systems and clean software architectures
-                </p>
-                <a href="#contact" class="btn-custom mt-3 fade-in">Get In Touch</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- About Section -->
-<section id="about" class="section">
-    <div class="container">
-        <h2 class="section-title fade-in">About Me</h2>
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="custom-card fade-in">
-                    <p>
-                        I am a Java-focused Software Developer with strong foundations in
-                        object-oriented programming, backend development, and database-driven systems.
-                        Currently pursuing B.Tech in Computer Science & Engineering at Charusat University.
-                    </p>
-                    <p>
-                        My primary expertise lies in Java, Spring Boot, Hibernate (JPA),
-                        RESTful API development, and SQL. I enjoy designing clean architectures
-                        and implementing reliable backend logic.
-                    </p>
-                    <p>
-                        I have also built full-stack projects such as <strong>ArtSea</strong>,
-                        an online art auction platform, demonstrating my ability to combine
-                        frontend and backend concepts effectively.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Skills Section -->
-<section id="skills" class="section" style="background-color: var(--secondary);">
-    <div class="container">
-        <h2 class="section-title fade-in">Skills & Expertise</h2>
-        <div class="row">
-            <div class="col-md-6 fade-in">
-
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Java (Core & OOP)</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="90%"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Spring Boot & REST APIs</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="85%"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Hibernate / JPA</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="80%"></div>
-                    </div>
-                </div>
-
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact" class="btn-contact">Contact</a>
+                <!-- Resume button will be added by JavaScript -->
             </div>
 
-            <div class="col-md-6 fade-in">
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>SQL & Database Design</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="85%"></div>
-                    </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container container">
+            <div class="hero-content">
+                <span class="badge">Software Developer</span>
+                <h1>Building Scalable Solutions with Modern Tech</h1>
+                <p class="subtitle">I specialize in creating robust backend systems, RESTful APIs, and full‑stack
+                    applications using clean architecture, microservices, and best practices for high‑performance
+                    solutions.</p>
+
+                <div class="hero-cta">
+                    <a href="#projects" class="btn-primary">
+                        <i class="fas fa-code"></i> View Projects
+                    </a>
+                    <a href="#contact" class="btn-secondary">
+                        <i class="fas fa-paper-plane"></i> Get In Touch
+                    </a>
+                    <a href="#" class="btn-resume">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
                 </div>
 
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>HTML, CSS & JavaScript</span>
-                        <span>75%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="75%"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Software Engineering & DSA</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="80%"></div>
+                <div class="tech-stack">
+                    <span>Expertise in:</span>
+                    <div class="tech-icons">
+                        <i class="devicon-java-plain colored" title="Java"></i>
+                        <i class="devicon-spring-plain colored" title="Spring Boot"></i>
+                        <i class="devicon-python-plain colored" title="Python"></i>
+                        <i class="devicon-php-plain colored" title="PHP"></i>
+                        <i class="devicon-django-plain colored" title="Django"></i>
+                        <i class="devicon-flask-plain colored" title="Flask"></i>
+                        <i class="devicon-mysql-plain colored" title="MySQL"></i>
+                        <!-- <i class="devicon-postgresql-plain colored" title="PostgreSQL"></i> -->
+                        <i class="devicon-html5-plain colored" title="HTML5"></i>
+                        <i class="devicon-css3-plain colored" title="CSS3"></i>
+                        <i class="devicon-javascript-plain colored" title="JavaScript"></i>
                     </div>
                 </div>
+            </div>
 
+            <div class="hero-image">
+                <div class="code-window">
+                    <div class="window-header">
+                        <div class="window-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="window-title">Portfolio.java</span>
+                    </div>
+                    <pre><code class="language-java">public class Developer {
+    private String name = "Atibali Saiyed";
+    private String role = "Software Developer";
+    private String[] expertise = {
+        "Backend Development",
+        "API Design",
+        "System Architecture",
+        "Database Design"
+    };
+    
+    public Solution buildProject(Requirements req) {
+        Solution solution = new Solution();
+        solution.setScalable(true);
+        solution.setMaintainable(true);
+        solution.setPerformanceOptimized(true);
+        return solution;
+    }
+    
+    public static void main(String[] args) {
+        Developer dev = new Developer();
+        System.out.println("Crafting digital solutions...");
+    }
+}</code></pre>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Projects Section -->
-<section id="projects" class="section">
-    <div class="container">
-        <h2 class="section-title fade-in">Projects</h2>
-        <div class="row">
-
-            <!-- ArtSea -->
-            <div class="col-md-6 col-lg-3 fade-in">
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <div class="project-content">
-                        <h5>ArtSea – Art Auction</h5>
-                        <p>
-                            Responsive art auction website featuring artwork listings and bidding interface.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- School Management -->
-            <div class="col-md-6 col-lg-3 fade-in">
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-school"></i>
-                    </div>
-                    <div class="project-content">
-                        <h5>School Management System</h5>
-                        <p>
-                            PHP-based system with CRUD operations, database integration,
-                            and role-based modules.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Let's Bunk -->
-            <div class="col-md-6 col-lg-3 fade-in">
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="project-content">
-                        <h5>Let's Bunk</h5>
-                        <p>
-                            Smart AI for Students to Balance Lectures and Tech Events with intelligent scheduling.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- IoT -->
-            <div class="col-md-6 col-lg-3 fade-in">
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-tint"></i>
-                    </div>
-                    <div class="project-content">
-                        <h5>IoT Water Monitoring</h5>
-                        <p>
-                            Real-time water monitoring system integrating sensors,
-                            analytics, and automation.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- Experience Section -->
-<section id="experience" class="section" style="background-color: var(--secondary);">
+    <!-- About Section -->
+    <section id="about" class="about-section">
         <div class="container">
-            <h2 class="section-title fade-in">Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item fade-in">
-                    <div class="custom-card">
-                        <div class="timeline-date">May 12 - June 21, 2025</div>
-                        <h5>Python Developer Intern</h5>
-                        <p>BrainyBeam Teachnologies - Developed and implemented a Product Distribution Module using Django Framework, enhancing
-                            supply chain efficiency.</p>
+            <div class="section-title-wrapper">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a passionate <strong>Software Developer</strong> with a strong foundation in <strong>Java,
+                            Python, and PHP</strong>. My expertise lies in designing and implementing scalable backend
+                        systems, RESTful APIs, and full‑stack applications.</p>
+                    <p>I believe in writing clean, maintainable code and following best practices like SOLID principles,
+                        design patterns, and test‑driven development. My goal is to create efficient solutions that
+                        solve real‑world problems while ensuring optimal performance and scalability.</p>
+                    <p>When I'm not coding, I enjoy exploring new technologies, contributing to open‑source projects,
+                        and continuously expanding my skill set to stay current with industry trends.</p>
+                </div>
+
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <h3>10+</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>5+</h3>
+                        <p>Technologies Mastered</p>
+                    </div>
+                    <!-- <div class="stat-card">
+                        <h3>100%</h3>
+                        <p>Client Satisfaction</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>&lt;1s</h3>
+                        <p>Response Time Focus</p>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2>Technical Skills</h2>
+            </div>
+
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> Backend Development</h3>
+                    <div class="skill-grid">
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <h4>Java Development</h4>
+                                <span class="skill-percent">95%</span>
+                            </div>
+                            <p>OOP, Collections, Streams, Multithreading, JDBC, JUnit</p>
+                            <div class="skill-level">
+                                <div class="level-bar" data-width="95%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <h4>Spring Ecosystem</h4>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <p>Spring Boot, Spring MVC, Spring Security, Spring Data JPA</p>
+                            <div class="skill-level">
+                                <div class="level-bar" data-width="90%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <h4>Python Backend</h4>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <p>Django, Flask, FastAPI, REST Frameworks, WebSockets</p>
+                            <div class="skill-level">
+                                <div class="level-bar" data-width="85%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <h4>PHP Development</h4>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <p>Laravel, CodeIgniter, REST APIs, Authentication Systems</p>
+                            <div class="skill-level">
+                                <div class="level-bar" data-width="80%"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="timeline-item fade-in">
-                    <div class="custom-card">
-                        <div class="timeline-date">Jan 2025 - Feb 2025</div>
-                        <h5>Cybersecurity Intern</h5>
-                        <p>Edunet Foundation - Gained hands-on experience in cryptographic algorithms and steganography
-                            techniques for secure data transmission.</p>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="custom-card">
-                        <div class="timeline-date">Dec 2024 - Jan 2025</div>
-                        <h5>Python Developer Intern</h5>
-                        <p>EISystems Technologies - Developed cybersecurity tools and completed advanced Python
-                            programming training for security applications.</p>
-                    </div>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="custom-card">
-                        <div class="timeline-date">Sep 2022</div>
-                        <h5>Web Developer Intern</h5>
-                        <p>Rainbow IT Services - Maintained websites, fixed errors, and integrated PHP back-end services
-                            for enhanced functionality.</p>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-layer-group"></i> Full Stack & Databases</h3>
+                    <div class="skill-grid">
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <h4>Frontend Development</h4>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <p>HTML5, CSS3, JavaScript, Responsive Design, Bootstrap</p>
+                            <div class="skill-level">
+                                <div class="level-bar" data-width="85%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <h4>Database Management</h4>
+                                <span class="skill-percent">88%</span>
+                            </div>
+                            <p>MySQL, MongoDB, Database Design, Optimization</p>
+                            <div class="skill-level">
+                                <div class="level-bar" data-width="88%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <h4>DevOps & Tools</h4>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <p>Git, Docker, AWS Basics, CI/CD, Postman, Swagger</p>
+                            <div class="skill-level">
+                                <div class="level-bar" data-width="75%"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-<!-- Contact -->
-<section id="contact" class="section">
-    <div class="container">
-        <h2 class="section-title fade-in">Contact & Socials</h2>
-        <div class="custom-card fade-in">
 
-            <p>
-                <strong>Email:</strong>
-                <a href="mailto:saiyedatibali@gmail.com">
-                    saiyedatibali@gmail.com
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2>Featured Projects</h2>
+                <p class="subtitle" style="text-align: center; margin-top: 1rem;">Full-stack applications showcasing
+                    diverse technical expertise</p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1: ArtSea -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-badge java">Spring Boot</span>
+                        <span class="project-badge db">MySQL</span>
+                        <span class="project-badge api">REST API</span>
+                    </div>
+                    <h3>ArtSea – Art Auction Platform</h3>
+                    <p>Responsive art auction website featuring artwork listings, bidding interface, user
+                        authentication, and secure payment processing. Includes admin panel for managing artworks and
+                        bids.</p>
+                    <div class="project-tech">
+                        <span>Spring Boot</span>
+                        <span>MySQL</span>
+                        <span>Thymeleaf</span>
+                        <span>REST API</span>
+                        <span>Bootstrap</span>
+                    </div>
+                    <!-- <div class="project-features">
+                        <span><i class="fas fa-check"></i> Real-time Bidding</span>
+                        <span><i class="fas fa-check"></i> User Authentication</span>
+                        <span><i class="fas fa-check"></i> Admin Dashboard</span>
+                    </div> -->
+                    <div class="project-links">
+                        <a href="https://github.com/atibali/ArtSea-Auction" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                        <!-- <a href="#" class="project-link demo-link">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a> -->
+                    </div>
+                </div>
+
+                <!-- Project 2: DriveMate -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-badge php">PHP</span>
+                        <span class="project-badge frontend">Full Stack</span>
+                        <span class="project-badge ajax">AJAX</span>
+                    </div>
+                    <h3>DriveMate – Car Rental Platform</h3>
+                    <p>Built a car rental system connecting owners and renters in Tier-2 cities. Features include car
+                        listings, booking system, owner-renter communication, and payment integration.</p>
+                    <div class="project-tech">
+                        <span>PHP</span>
+                        <span>MySQL</span>
+                        <span>JavaScript</span>
+                        <span>AJAX</span>
+                        <span>Bootstrap</span>
+                    </div>
+                    <!-- <div class="project-features">
+                        <span><i class="fas fa-check"></i> Location-based Search</span>
+                        <span><i class="fas fa-check"></i> Booking System</span>
+                        <span><i class="fas fa-check"></i> Payment Integration</span>
+                    </div> -->
+                    <div class="project-links">
+                        <a href="https://github.com/atibali/DriveMate" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Distributor System -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-badge python">Django</span>
+                        <span class="project-badge crud">CRUD Operations</span>
+                        <span class="project-badge bootstrap">Bootstrap</span>
+                    </div>
+                    <h3>Distributor Management System</h3>
+                    <p>Complete system for customer registration and product management with full CRUD operations.
+                        Enables distributors to manage customer data and product inventory efficiently.</p>
+                    <div class="project-tech">
+                        <span>Django</span>
+                        <span>Python</span>
+                        <span>SQLite</span>
+                        <span>Bootstrap</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <!-- <div class="project-features">
+                        <span><i class="fas fa-check"></i> Customer Registration</span>
+                        <span><i class="fas fa-check"></i> Product CRUD</span>
+                        <span><i class="fas fa-check"></i> Report Generation</span>
+                    </div> -->
+                    <div class="project-links">
+                        <a href="https://github.com/atibali/Distributor-System" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4: Portfolio Website -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-badge frontend">Frontend</span>
+                        <span class="project-badge responsive">Responsive</span>
+                        <span class="project-badge modern">Modern Design</span>
+                    </div>
+                    <h3>Portfolio Website</h3>
+                    <p>Modern, responsive portfolio website with smooth animations, dark theme, and optimized
+                        performance. Built with semantic HTML, modern CSS techniques, and interactive JavaScript.</p>
+                    <div class="project-tech">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>Responsive</span>
+                        <span>GitHub Pages</span>
+                    </div>
+                    <!-- <div class="project-features">
+                        <span><i class="fas fa-check"></i> Responsive Design</span>
+                        <span><i class="fas fa-check"></i> Smooth Animations</span>
+                        <span><i class="fas fa-check"></i> Contact Form</span>
+                    </div> -->
+                    <div class="project-links">
+                        <a href="https://github.com/atibali/portfolio" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                        <!-- <a href="https://atibali.github.io" target="_blank" class="project-link demo-link">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a> -->
+                    </div>
+                </div>
+
+                <!-- Project 5: School Management -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-badge php">PHP</span>
+                        <span class="project-badge crud">CRUD System</span>
+                        <span class="project-badge role">Role-based</span>
+                    </div>
+                    <h3>School Management System</h3>
+                    <p>Comprehensive PHP-based system with CRUD operations, database integration, and role-based modules
+                        for students, teachers, and administrators. Includes attendance tracking and grade management.
+                    </p>
+                    <div class="project-tech">
+                        <span>PHP</span>
+                        <span>MySQL</span>
+                        <span>JavaScript</span>
+                        <span>Bootstrap</span>
+                        <span>Chart.js</span>
+                    </div>
+                    <!-- <div class="project-features">
+                        <span><i class="fas fa-check"></i> Role-based Access</span>
+                        <span><i class="fas fa-check"></i> Attendance System</span>
+                        <span><i class="fas fa-check"></i> Grade Management</span>
+                    </div> -->
+                    <div class="project-links">
+                        <a href="https://github.com/atibali/School-Management" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 6: Alumni Portal -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-badge php">PHP</span>
+                        <span class="project-badge network">Networking</span>
+                        <span class="project-badge portal">Portal</span>
+                    </div>
+                    <h3>SKJP Alumni Portal</h3>
+                    <p>Centralized portal for alumni networking, event management, and community engagement. Features
+                        include alumni directory, event registration, news updates, and photo galleries.</p>
+                    <div class="project-tech">
+                        <span>PHP</span>
+                        <span>MySQL</span>
+                        <span>JavaScript</span>
+                        <span>AJAX</span>
+                        <span>CSS3</span>
+                    </div>
+                    <!-- <div class="project-features">
+                        <span><i class="fas fa-check"></i> Alumni Directory</span>
+                        <span><i class="fas fa-check"></i> Event Management</span>
+                        <span><i class="fas fa-check"></i> News Updates</span>
+                    </div> -->
+                    <div class="project-links">
+                        <a href="https://github.com/atibali/Alumni-Portal" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-cta">
+                <p>Want to see more projects? Check out my GitHub profile for additional work.</p>
+                <a href="https://github.com/atibali" target="_blank" class="btn-primary">
+                    <i class="fab fa-github"></i> View All Projects on GitHub
                 </a>
-            </p>
-
-            <p>
-                <strong>GitHub:</strong>
-                <a href="https://github.com/Atibali" target="_blank" rel="noopener noreferrer">
-                    github.com/Atibali
-                </a>
-            </p>
-
-            <p>
-                <strong>LinkedIn:</strong>
-                <a href="https://www.linkedin.com/in/atibali-saiyed/" target="_blank" rel="noopener noreferrer">
-                    linkedin.com/in/atibali-saiyed
-                </a>
-            </p>
-
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2>Let's Connect</h2>
+                <p class="subtitle" style="text-align: center; margin-top: 1rem;">Have a project in mind? Feel free to
+                    reach out!</p>
+            </div>
 
-<footer>
-    <div class="container">
-        <p>© 2025 Atibali Saiyed | Java Backend Developer</p>
-    </div>
-</footer>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <i class="fab fa-linkedin"></i>
+                        <h3>LinkedIn</h3>
+                        <p>Professional Profile</p>
+                        <a href="https://www.linkedin.com/in/atibali-saiyed/" target="_blank">Connect with me</a>
+                    </div>
 
+                    <div class="contact-card">
+                        <i class="fab fa-github"></i>
+                        <h3>GitHub</h3>
+                        <p>Code Repository</p>
+                        <a href="https://github.com/atibali" target="_blank">View Projects</a>
+                    </div>
 
+                    <div class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>Direct Contact</p>
+                        <a href="#" class="btn-email">saiyedatibali@gmail.com</a>
+                    </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Fade in elements on scroll
-            const fadeElements = document.querySelectorAll('.fade-in');
+                    <div class="contact-card">
+                        <i class="fas fa-file-pdf"></i>
+                        <h3>Resume</h3>
+                        <p>Download CV</p>
+                        <a href="#" class="btn-resume-small">Download PDF</a>
+                    </div>
+                </div>
 
-            const fadeInOnScroll = function () {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form id="contactForm">
+                        <input type="text" name="name" placeholder="Your Name" required />
+                        <input type="email" name="email" placeholder="Your Email" required />
+                        <input type="text" name="subject" placeholder="Subject" required />
+                        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.classList.add('visible');
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div>
+                <strong>Atibali Saiyed</strong><span class="dot">.</span>
+                <p>Software Developer & Backend Specialist</p>
+            </div>
+            <div>
+                <p>© 2026 Atibali Saiyed. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-                        // Animate skill bars
-                        if (element.querySelector('.skill-progress')) {
-                            const progressBars = element.querySelectorAll('.skill-progress');
-                            progressBars.forEach(bar => {
-                                bar.style.width = bar.getAttribute('data-width');
-                            });
-                        }
-                    }
-                });
-            };
-
-            // Initial check
-            fadeInOnScroll();
-
-            // Check on scroll
-            window.addEventListener('scroll', fadeInOnScroll);
-
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a.nav-link').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-
-                    // Update active nav link
-                    document.querySelectorAll('a.nav-link').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                });
-            });
-
-            // Update navbar on scroll
-            window.addEventListener('scroll', function () {
-                const navbar = document.querySelector('.navbar');
-                if (window.scrollY > 50) {
-                    navbar.style.padding = '0.7rem 0';
-                    navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
-                } else {
-                    navbar.style.padding = '1rem 0';
-                    navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.08)';
-                }
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
