@@ -66,25 +66,6 @@ atibali.github.io/
 
 ---
 
-## 📷 Preview
-
-> You can add screenshots or a GIF here later 👇
-
-```
-![Website Preview](assets/preview.png)
-```
-
----
-
-## 🧩 Future Improvements
-
-* Add project case studies
-* Blog / write-ups section
-* Interactive quizzes & fun elements
-* Performance & accessibility improvements
-* Dark mode 🌙
-
----
 
 ## 🤝 Contributing
 
@@ -99,7 +80,3 @@ Feel free to open an issue or start a discussion.
 * **Email:** [saiyedatibali@gmail.com](mailto:saiyedatibali@gmail.com)
 
 ---
-
-## 📄 License
-
-This project is open source and available under the MIT License.
