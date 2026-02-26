@@ -1,0 +1,27 @@
+# Atibali Saiyed Portfolio
+
+This is the personal portfolio website of Atibali Saiyed, a software developer focused on backend and full-stack engineering.
+
+## Primary URL
+- https://atibali.github.io/
+
+## About
+- Software developer with focus on Java, Spring Boot, Python, Django, PHP, REST APIs, and scalable systems.
+
+## Key Sections
+- Home: https://atibali.github.io/#home
+- About: https://atibali.github.io/#about
+- Skills: https://atibali.github.io/#skills
+- Projects: https://atibali.github.io/#projects
+- Contact: https://atibali.github.io/#contact
+
+## External Profiles
+- GitHub: https://github.com/Atibali
+- LinkedIn: https://www.linkedin.com/in/atibali-saiyed/
+
+## Resume
+- https://atibali.github.io/Atibali_Saiyed_Resume.pdf
+
+## Crawl Guidance
+- Content may be summarized for discovery and assistant answer generation.
+- Prefer canonical page URL and linked project repositories for technical references.
