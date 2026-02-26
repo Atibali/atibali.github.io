@@ -11,8 +11,8 @@ const skillBars = document.querySelectorAll('.level-bar');
 // Configuration
 const CONFIG = {
     EMAIL: 'saiyedatibali@gmail.com',
-    // Use direct raw GitHub link for resume
-    RESUME_URL: 'https://github.com/Atibali/atibali.github.io/raw/main/Atibali_Saiyed_Resume.pdf',
+    // Use same-origin file for a more reliable download on GitHub Pages.
+    RESUME_URL: './Atibali_Saiyed_Resume.pdf',
     RESUME_FILENAME: 'Atibali_Saiyed_Resume.pdf',
     GITHUB_USERNAME: 'atibali',
     LINKEDIN_URL: 'https://www.linkedin.com/in/atibali-saiyed/'
@@ -27,6 +27,7 @@ const toggleMenu = () => {
     menuToggle.innerHTML = isActive 
         ? '<i class="fas fa-times"></i>' 
         : '<i class="fas fa-bars"></i>';
+    menuToggle.setAttribute('aria-expanded', String(isActive));
     
     document.body.style.overflow = isActive ? 'hidden' : '';
 };
@@ -35,11 +36,34 @@ if (menuToggle) {
     menuToggle.addEventListener('click', toggleMenu);
 }
 
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+});
+
+document.addEventListener('click', e => {
+    if (!navLinks.classList.contains('active')) return;
+
+    const isToggle = menuToggle.contains(e.target);
+    const isInsideNav = navLinks.contains(e.target);
+    if (isToggle || isInsideNav) return;
+
+    navLinks.classList.remove('active');
+    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+});
+
 // Close menu when clicking on nav links
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
         menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        menuToggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
     });
 });
@@ -61,6 +85,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
             menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            menuToggle.setAttribute('aria-expanded', 'false');
             document.body.style.overflow = '';
         }
 
@@ -97,6 +122,7 @@ function downloadResume() {
         a.href = CONFIG.RESUME_URL;
         a.download = CONFIG.RESUME_FILENAME;
         a.target = '_blank'; // Open in new tab if direct download doesn't work
+        a.rel = 'noopener noreferrer';
         
         // Append to body, click, and remove
         document.body.appendChild(a);
@@ -105,14 +131,14 @@ function downloadResume() {
         
         // Show success notification
         setTimeout(() => {
-            showNotification('Resume download started! ✅', 'success');
+            showNotification('Resume download started.', 'success');
         }, 1000);
             
     } catch (error) {
         console.error('Resume download failed:', error);
         
         // Fallback: Open in new tab
-        window.open(CONFIG.RESUME_URL, '_blank');
+        window.open(CONFIG.RESUME_URL, '_blank', 'noopener,noreferrer');
         showNotification('Opening resume in new tab...', 'info');
     }
 }
@@ -131,7 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const navContainer = document.querySelector('.nav-links');
     if (navContainer && !document.querySelector('.nav-resume-btn')) {
         const resumeBtn = document.createElement('a');
-        resumeBtn.href = '#';
+        resumeBtn.href = CONFIG.RESUME_URL;
+        resumeBtn.download = CONFIG.RESUME_FILENAME;
         resumeBtn.className = 'btn-resume nav-resume-btn';
         resumeBtn.innerHTML = '<i class="fas fa-download"></i> Resume';
         resumeBtn.addEventListener('click', (e) => {
@@ -150,7 +177,7 @@ function copyEmail() {
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(CONFIG.EMAIL)
             .then(() => {
-                showNotification('Email copied to clipboard! 📧', 'success');
+                showNotification('Email copied to clipboard.', 'success');
                 
                 // Update button text temporarily
                 document.querySelectorAll('.btn-email').forEach(btn => {
@@ -187,7 +214,7 @@ function fallbackCopyEmail() {
     try {
         const successful = document.execCommand('copy');
         if (successful) {
-            showNotification('Email copied to clipboard! 📧', 'success');
+            showNotification('Email copied to clipboard.', 'success');
         } else {
             throw new Error('Copy command failed');
         }
@@ -243,7 +270,7 @@ if (contactForm) {
             const mailtoLink = `mailto:${CONFIG.EMAIL}?subject=${subject}&body=${body}`;
             
             // Open mail client
-            window.open(mailtoLink, '_blank');
+            window.open(mailtoLink, '_blank', 'noopener,noreferrer');
             
             // Reset form
             contactForm.reset();
@@ -342,37 +369,4 @@ document.addEventListener('DOMContentLoaded', () => {
     skillBars.forEach(bar => {
         bar.style.width = '0';
     });
-    
-    // Add notification styles
-    if (!document.querySelector('#notification-styles')) {
-        const style = document.createElement('style');
-        style.id = 'notification-styles';
-        style.textContent = `
-            .notification {
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                padding: 16px 24px;
-                border-radius: 12px;
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-                z-index: 10000;
-                background: #10b981;
-                color: white;
-                animation: slideInRight 0.3s ease;
-                max-width: 400px;
-                transition: all 0.3s ease;
-            }
-            .notification.error { background: #ef4444; }
-            .notification.info { background: #3b82f6; }
-            .notification i { font-size: 1.2rem; }
-            @keyframes slideInRight {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-        `;
-        document.head.appendChild(style);
-    }
 });
